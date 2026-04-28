@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    fragment@0 {
+        target = <&spi0>;
+
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            ili9225@0 {
+                compatible = "ili9225_driver";
+                reg = <0>;                     /* CE0 of SPI */
+                spi-max-frequency = <4000000>; /* 4 MHz safe for ILI9225 */
+                status = "okay";
+
+                dc-gpios = <&gpio 25 0>;       /* BCM GPIO 25 */
+                reset-gpios = <&gpio 24 0>;    /* BCM GPIO 24 */
+            };
+        };
+    };
+};

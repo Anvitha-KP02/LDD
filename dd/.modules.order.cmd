@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/modules.order := {   echo /home/mirafra/Desktop/batch-5/dd/main_module.o;   echo /home/mirafra/Desktop/batch-5/dd/helper_module.o; :; } > /home/mirafra/Desktop/batch-5/dd/modules.order

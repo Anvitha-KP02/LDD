@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.ko /home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.o /home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.mod.o

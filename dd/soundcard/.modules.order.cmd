@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/soundcard/modules.order := {   echo /home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.o; :; } > /home/mirafra/Desktop/batch-5/dd/soundcard/modules.order

@@ -1,0 +1,32 @@
+Sample expected messages (program-dependent):
+
+1) Insert + Display
+   - Should show inserted value(s), e.g.:
+     "10"
+     "20"
+     "30"
+
+2) Delete on non-empty
+   - Should indicate delete success, e.g.:
+     "Deleted element: 99"
+     OR no deleted value appears in subsequent display
+
+3) Display on empty
+   - Expected keywords:
+     "empty"
+
+4) Underflow
+   - Expected keywords:
+     "underflow"
+     OR "stack is empty"
+     OR "queue is empty"
+
+5) Overflow (array-based DS)
+   - Expected keywords:
+     "overflow"
+     OR "full"
+
+6) Stress test
+   - Program should not crash/hang
+   - Should produce output file in:
+     ds_test_suite/.tmp/

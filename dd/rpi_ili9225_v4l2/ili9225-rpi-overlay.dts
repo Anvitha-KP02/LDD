@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+/* SPI0 CE0, bcm2711. Canonical copy with docs: ../ili9225_lcd_v4l2_playback/overlay/ */
+/* GPIO flag 0 = ACTIVE_HIGH */
+
+/ {
+	compatible = "brcm,bcm2711";
+
+	fragment@0 {
+		target = <&spi0>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			ili9225@0 {
+				compatible = "ilitek,ili9225";
+				reg = <0>;
+				spi-max-frequency = <16000000>;
+				dc-gpios = <&gpio 25 0>;
+				reset-gpios = <&gpio 24 0>;
+				status = "okay";
+			};
+		};
+	};
+};

@@ -1,0 +1,28 @@
+[2026-03-24 14:43:25] [INFO] Application started.
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | display | success
+[2026-03-24 14:43:25] [INFO] Application exited cleanly.
+[2026-03-24 14:43:25] [INFO] Application started.
+[2026-03-24 14:43:25] [INFO] queue | delete | underflow
+[2026-03-24 14:43:25] [INFO] Application exited cleanly.
+[2026-03-24 14:43:25] [INFO] Application started.
+[2026-03-24 14:43:25] [INFO] list | insert | success
+[2026-03-24 14:43:25] [INFO] list | delete | not_found
+[2026-03-24 14:43:25] [INFO] Application exited cleanly.
+[2026-03-24 14:43:25] [INFO] Application started.
+[2026-03-24 14:43:25] [WARN] Invalid menu input.
+[2026-03-24 14:43:25] [INFO] Application exited cleanly.
+[2026-03-24 14:43:25] [INFO] Application started.
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | success
+[2026-03-24 14:43:25] [INFO] stack | insert | overflow
+[2026-03-24 14:43:25] [INFO] Application exited cleanly.

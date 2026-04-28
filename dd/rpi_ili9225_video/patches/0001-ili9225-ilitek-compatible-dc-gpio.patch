@@ -1,0 +1,27 @@
+--- a/drivers/gpu/drm/tiny/ili9225.c
++++ b/drivers/gpu/drm/tiny/ili9225.c
+@@ -368,6 +368,7 @@ static const struct drm_driver ili9225_driver = {
+ };
+ 
+ static const struct of_device_id ili9225_of_match[] = {
++	{ .compatible = "ilitek,ili9225" },
+ 	{ .compatible = "vot,v220hf01a-t" },
+ 	{},
+ };
+@@ -401,8 +402,14 @@ static int ili9225_probe(struct spi_device *spi)
+ 	if (IS_ERR(dbi->reset))
+ 		return dev_err_probe(dev, PTR_ERR(dbi->reset), "Failed to get GPIO 'reset'\n");
+ 
++	/* Binding: rs-gpios; many overlays use dc-gpios for the same D/C line */
+ 	rs = devm_gpiod_get(dev, "rs", GPIOD_OUT_LOW);
+-	if (IS_ERR(rs))
+-		return dev_err_probe(dev, PTR_ERR(rs), "Failed to get GPIO 'rs'\n");
++	if (IS_ERR(rs)) {
++		rs = devm_gpiod_get(dev, "dc", GPIOD_OUT_LOW);
++		if (IS_ERR(rs))
++			return dev_err_probe(dev, PTR_ERR(rs),
++					     "Failed to get GPIO 'rs' or 'dc'\n");
++	}
+ 
+ 	device_property_read_u32(dev, "rotation", &rotation);
+ 

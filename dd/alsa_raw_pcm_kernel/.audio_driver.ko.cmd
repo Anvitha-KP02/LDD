@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/alsa_raw_pcm_kernel/audio_driver.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Desktop/batch-5/dd/alsa_raw_pcm_kernel/audio_driver.ko /home/mirafra/Desktop/batch-5/dd/alsa_raw_pcm_kernel/audio_driver.o /home/mirafra/Desktop/batch-5/dd/alsa_raw_pcm_kernel/audio_driver.mod.o

@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.mod := printf '%s\n'   my_sound_card.o | awk '!x[$$0]++ { print("/home/mirafra/Desktop/batch-5/dd/soundcard/"$$0) }' > /home/mirafra/Desktop/batch-5/dd/soundcard/my_sound_card.mod

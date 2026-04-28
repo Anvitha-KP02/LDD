@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/memory_leak/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Desktop/batch-5/memory_leak/Module.symvers -T /home/mirafra/Desktop/batch-5/memory_leak/modules.order -i Module.symvers -e 

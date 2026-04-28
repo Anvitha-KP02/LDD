@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/waitqueue/waitqueue1.mod := printf '%s\n'   waitqueue1.o | awk '!x[$$0]++ { print("/home/mirafra/Desktop/batch-5/waitqueue/"$$0) }' > /home/mirafra/Desktop/batch-5/waitqueue/waitqueue1.mod

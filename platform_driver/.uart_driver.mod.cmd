@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/platform_driver/uart_driver.mod := printf '%s\n'   uart_driver.o | awk '!x[$$0]++ { print("/home/mirafra/Desktop/batch-5/platform_driver/"$$0) }' > /home/mirafra/Desktop/batch-5/platform_driver/uart_driver.mod

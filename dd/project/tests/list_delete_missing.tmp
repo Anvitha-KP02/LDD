@@ -1,0 +1,37 @@
+[36m============================================
+[0m[36m Data Structures CLI (Stack/Queue/List)
+[0m[36m============================================
+[0m
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: 
+Linked List Menu
+1. Insert
+2. Delete by value
+3. Display
+4. Back
+Choose an option [1-4]: Enter value to insert: [32m[OK] Value inserted into linked list.
+[0m
+Linked List Menu
+1. Insert
+2. Delete by value
+3. Display
+4. Back
+Choose an option [1-4]: Enter value to delete: [31m[ERROR] Value not found in linked list.
+[0m
+Linked List Menu
+1. Insert
+2. Delete by value
+3. Display
+4. Back
+Choose an option [1-4]: 
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: [32m[OK] Goodbye.
+[0m

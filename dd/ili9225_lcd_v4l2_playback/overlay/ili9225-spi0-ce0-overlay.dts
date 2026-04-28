@@ -1,0 +1,47 @@
+// ILI9225 on SPI0 CE0 — Raspberry Pi 4 (bcm2711), Linux 6.12
+// Build:  dtc -@ -I dts -O dtb -o ili9225-spi0-ce0.dtbo ili9225-spi0-ce0-overlay.dts
+// Install: sudo cp ili9225-spi0-ce0.dtbo /boot/firmware/overlays/
+// config.txt: dtoverlay=ili9225-spi0-ce0
+//
+// GPIO cells use BCM numbers on the 40-pin header (not WiringPi).
+// Wiring: SPI0 MOSI (GPIO10), MISO (GPIO9), SCLK (GPIO11), CE0 (GPIO8).
+
+/dts-v1/;
+/plugin/;
+
+/* GPIO flags: 0 = GPIO_ACTIVE_HIGH (matches <dt-bindings/gpio/gpio.h>) */
+
+/ {
+	compatible = "brcm,bcm2711";
+
+	fragment@0 {
+		target = <&spi0>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			ili9225@0 {
+				compatible = "ilitek,ili9225";
+				reg = <0>; /* CE0 */
+				spi-max-frequency = <16000000>;
+
+				/* Data/command (AKA RS). Driver: devm_gpiod_get(..., "dc"). */
+				dc-gpios = <&gpio 25 0>;
+				/* Active-low reset: use flag cell 1 (GPIO_ACTIVE_LOW) instead of 0 */
+				reset-gpios = <&gpio 24 0>;
+
+				/* Optional: backlight-gpios = <&gpio 18 0>; */
+
+				/* SPI mode 0 (default). spi-cpol + spi-cpha = mode 3 if hardware needs it. */
+				/* swap-bytes; — if red/blue look swapped vs userspace RGB565 */
+
+				status = "okay";
+			};
+		};
+	};
+
+	/* For dtparam-style pins / SPI speed, duplicate this overlay or edit the properties above.
+	 * Raspberry Pi overlay parameters use byte offsets; see official device-tree docs. */
+};

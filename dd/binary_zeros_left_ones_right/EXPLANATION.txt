@@ -1,0 +1,50 @@
+=== C PROGRAM ===
+
+See main.c in this folder. Build and run:
+
+  gcc -Wall -Wextra -std=c11 -o rearrange main.c
+  ./rearrange
+
+=== LOGIC EXPLANATION ===
+
+We use a single linear scan with one extra index, "insert", which always
+points to the next position where a 0 should go (the leftmost slot not yet
+filled with a 0).
+
+For each index i from 0 to n-1:
+  - If a[i] is 0, swap a[i] with a[insert], then increment insert.
+  - If a[i] is 1, do nothing (leave it; it may get swapped later when a 0
+    is found to its right, or it naturally ends up on the right).
+
+Effect: every 0 is swapped into the prefix [0 .. insert-1] in order, so all
+0s end up on the left and all 1s on the right. No sorting is used—only
+equality checks and swaps.
+
+This is the same idea as partitioning in quicksort for a two-value array,
+or the "Dutch flag" problem with two colors.
+
+=== DRY RUN ===
+
+Input:  a[10] = {1,0,1,1,0,0,0,1,1,0}
+insert starts at 0.
+
+ i | a[i] | action                         | array after step
+---+------+--------------------------------+---------------------------
+ 0 |   1  | skip (not 0)                   | {1,0,1,1,0,0,0,1,1,0}
+ 1 |   0  | swap a[1]↔a[0], insert=1      | {0,1,1,1,0,0,0,1,1,0}
+ 2 |   1  | skip                           | {0,1,1,1,0,0,0,1,1,0}
+ 3 |   1  | skip                           | {0,1,1,1,0,0,0,1,1,0}
+ 4 |   0  | swap a[4]↔a[1], insert=2      | {0,0,1,1,1,0,0,1,1,0}
+ 5 |   0  | swap a[5]↔a[2], insert=3      | {0,0,0,1,1,1,0,1,1,0}
+ 6 |   0  | swap a[6]↔a[3], insert=4      | {0,0,0,0,1,1,1,1,1,0}
+ 7 |   1  | skip                           | {0,0,0,0,1,1,1,1,1,0}
+ 8 |   1  | skip                           | {0,0,0,0,1,1,1,1,1,0}
+ 9 |   0  | swap a[9]↔a[4], insert=5      | {0,0,0,0,0,1,1,1,1,1}
+
+Output: {0,0,0,0,0,1,1,1,1,1}
+
+=== TIME COMPLEXITY ===
+
+Time:  O(n) — one pass over n elements, constant work per element.
+Space: O(1) — only a few integer variables (insert, i, temporary for swap);
+         the array is rearranged in place, no auxiliary array.

@@ -1,0 +1,38 @@
+BUILD & RUN (Raspberry Pi, kernel 5.x+)
+=======================================
+
+Prerequisites on the Pi:
+  sudo apt update
+  sudo apt install -y raspberrypi-kernel-headers build-essential bc kmod
+  (If headers package name differs, install the package matching: uname -r)
+
+Build the module (on the Pi, in this folder):
+  cd /path/to/alsa_raw_pcm_kernel
+  make
+
+Load:
+  sudo insmod ./audio_driver.ko
+
+Verify card appears:
+  cat /proc/asound/cards
+  aplay -l
+
+Unload:
+  sudo rmmod audio_driver
+
+HOW TO PLAY RAW PCM
+===================
+File must be raw S16_LE stereo 44100 Hz (interleaved), e.g.:
+  aplay -D hw:CARD,0 -f S16_LE -c 2 -r 44100 audio.raw
+
+Replace CARD with the index shown in /proc/asound/cards (often 0 if this is the only card,
+or higher if HDMI / headphone / USB audio are enumerated first).
+
+Example:
+  aplay -D hw:1,0 -f S16_LE -c 2 -r 44100 audio.raw
+
+Notes
+=====
+- This driver does not output analog audio to a jack; it simulates DMA completion so
+  userspace playback completes. It proves the ALSA PCM path end-to-end.
+- For real I2S/codec output you would replace the timer with hardware DMA completion.

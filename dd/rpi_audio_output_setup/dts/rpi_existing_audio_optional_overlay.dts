@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835", "brcm,bcm2711";
+
+	/*
+	 * Optional overlay source for documentation/training use.
+	 * In most cases for jack/HDMI audio you only need config.txt:
+	 *   dtparam=audio=on
+	 *   dtoverlay=vc4-kms-v3d
+	 *
+	 * This file intentionally avoids custom codec/machine bindings.
+	 */
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			/* Keep onboard analog audio path enabled */
+			audio_pins: audio_pins {
+				status = "okay";
+			};
+		};
+	};
+};

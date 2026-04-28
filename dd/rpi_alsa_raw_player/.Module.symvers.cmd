@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/rpi_alsa_raw_player/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Desktop/batch-5/dd/rpi_alsa_raw_player/Module.symvers -T /home/mirafra/Desktop/batch-5/dd/rpi_alsa_raw_player/modules.order -i Module.symvers -e 

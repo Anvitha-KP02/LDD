@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/socket/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Desktop/batch-5/socket/Module.symvers -T /home/mirafra/Desktop/batch-5/socket/modules.order -i Module.symvers -e 

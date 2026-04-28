@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/dd/spinlock.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Desktop/batch-5/dd/spinlock.ko /home/mirafra/Desktop/batch-5/dd/spinlock.o /home/mirafra/Desktop/batch-5/dd/spinlock.mod.o

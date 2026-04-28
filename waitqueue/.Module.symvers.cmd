@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Desktop/batch-5/waitqueue/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Desktop/batch-5/waitqueue/Module.symvers -T /home/mirafra/Desktop/batch-5/waitqueue/modules.order -i Module.symvers -e 

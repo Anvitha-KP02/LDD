@@ -1,0 +1,32 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	compatible = "brcm,bcm2835", "brcm,bcm2711";
+};
+
+/*
+ * Raspberry Pi overlay example:
+ * - gpios: consumed by devm_gpiod_get(dev, NULL, GPIOD_IN)
+ * - interrupts + interrupt-parent: used by platform_get_irq()
+ */
+&{/} {
+	irq_gpio_demo: irq-gpio-demo {
+		compatible = "demo,irq-gpio-platform";
+
+		/* BCM GPIO17 as input signal */
+		gpios = <&gpio 17 GPIO_ACTIVE_HIGH>;
+
+		/* Rising-edge interrupt on BCM GPIO17 */
+		interrupt-parent = <&gpio>;
+		interrupts = <17 IRQ_TYPE_EDGE_RISING>;
+
+		/* Optional debounce in microseconds */
+		debounce-us = <10000>;
+
+		status = "okay";
+	};
+};

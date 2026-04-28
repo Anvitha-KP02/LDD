@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * SPI0 + ILI9225 (176x220) for BCM2711 — matches in-tree drm/tiny/ili9225.c
+ * after applying patches in patches/ (or use pre-edited kernel tree).
+ *
+ * Build: dtc -@ -I dts -O dtb -o ili9225-spi0.dtbo ili9225-spi0-overlay.dts
+ * Enable: dtoverlay=ili9225-spi0
+ *
+ * Notes:
+ * - Kernel 6.12+ RPi: enable CONFIG_DRM_TINYDRM and CONFIG_TINYDRM_ILI9225 (y or m).
+ * - Video containers (mp4/mov/mkv) are decoded in userspace; see play_video_to_fb.sh
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2711";
+
+	fragment@0 {
+		target = <&spi0>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			ili9225@0 {
+				compatible = "ilitek,ili9225";
+				reg = <0>;
+				spi-max-frequency = <4000000>;
+				status = "okay";
+
+				/* D/C (register select): use rs-gpios for strict binding, or dc-gpios if kernel has dc fallback */
+				dc-gpios = <&gpio 25 0>;
+				reset-gpios = <&gpio 24 0>;
+			};
+		};
+	};
+};

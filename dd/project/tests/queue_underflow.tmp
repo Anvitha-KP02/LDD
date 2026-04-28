@@ -1,0 +1,30 @@
+[36m============================================
+[0m[36m Data Structures CLI (Stack/Queue/List)
+[0m[36m============================================
+[0m
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: 
+Queue Menu
+1. Insert
+2. Delete
+3. Display
+4. Back
+Choose an option [1-4]: [31m[ERROR] Queue underflow. Nothing to delete.
+[0m
+Queue Menu
+1. Insert
+2. Delete
+3. Display
+4. Back
+Choose an option [1-4]: 
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: [32m[OK] Goodbye.
+[0m

@@ -1,0 +1,18 @@
+[36m============================================
+[0m[36m Data Structures CLI (Stack/Queue/List)
+[0m[36m============================================
+[0m
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: [31m[ERROR] Invalid input. Enter a valid menu option.
+[0m
+Main Menu
+1. Stack
+2. Queue
+3. Linked List
+4. Exit
+Choose an option [1-4]: [32m[OK] Goodbye.
+[0m
