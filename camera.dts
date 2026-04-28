@@ -1,0 +1,50 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    /* OV7251 Camera on I2C1 */
+    fragment@0 {
+        target-path = "/soc/i2c@1";
+        __overlay__ {
+            status = "okay";
+            ov7251_camera: camera@60 {
+                compatible = "ovti,ov7251";
+                reg = <0x60>;   /* I2C address */
+
+                /* Use RPi clock */
+                xclk = <24000000>;
+
+                reset-gpios = <&gpio 17 0>;  /* GPIO17, active low */
+                pwdn-gpios  = <&gpio 18 0>;  /* GPIO18, active low */
+
+                vddio-supply = <&camera_dovdd_1v8>;
+                vdda-supply  = <&camera_avdd_2v8>;
+                vddd-supply  = <&camera_dvdd_1v2>;
+
+                port {
+                    camera_ep: endpoint {
+                        remote-endpoint = <&csi0_ep>;
+                    };
+                };
+            };
+        };
+    };
+
+    /* SPI TFT Display */
+    fragment@1 {
+        target-path = "/soc/spi@1";
+        __overlay__ {
+            status = "okay";
+            tft_display: display@0 {
+                compatible = "myspi,tft128";
+                reg = <0>;                      /* Chip-select 0 */
+                spi-max-frequency = <8000000>;
+
+                reset-gpios = <&gpio 5 0>;       /* GPIO5 active low */
+                dc-gpios    = <&gpio 6 1>;       /* GPIO6 active high */
+            };
+        };
+    };
+};
